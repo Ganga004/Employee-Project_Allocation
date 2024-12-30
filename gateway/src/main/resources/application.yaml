@@ -1,0 +1,67 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: EMPLOYEE.DATA
+          uri: lb://EMPLOYEE.DATA
+          predicates:
+            - Path=/emp/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: employeeServiceCircuitBreaker
+                fallbackUri: forward:/fallback/employee
+            - name: Retry
+              args:
+                retries: 3
+                #                  statuses: 500, 503
+                methods: GET
+        - id: PROJECT.ALLOCATION
+          uri: lb://PROJECT.ALLOCATION
+          predicates:
+            - Path=/project/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: projectServiceCircuitBreaker
+                fallbackUri: forward:/fallback/project
+            - name: Retry
+              args:
+                retries: 3
+                #                statuses: 500, 503
+                methods: GET
+
+resilience4j.circuitbreaker:
+  instances:
+    employeeServiceCircuitBreaker:
+      slidingWindowSize: 5
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
+      permittedNumberOfCallsInHalfOpenState: 3
+    projectServiceCircuitBreaker:
+      slidingWindowSize: 5
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
+      permittedNumberOfCallsInHalfOpenState: 3
+
+  #load balancer config
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

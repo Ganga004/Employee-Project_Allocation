@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: employee.data
+  cloud:
+    config:
+      enabled: false
+
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/employeedata
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+  sleuth:
+    sampler:
+      probability: 1.0
+
+      propagation:
+        type: w3c
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+server:
+  port: 8080
+
+
+
+
