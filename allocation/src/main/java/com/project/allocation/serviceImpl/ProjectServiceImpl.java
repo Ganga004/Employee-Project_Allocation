@@ -103,6 +103,11 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDetails.isEmpty() ? List.of() : projectDetails;
     }
 
+     @Override
+    public List<Project> getAllProjectDetails() {
+        return projectRepository.findAll();
+    }
+
     private static LocalDate validateAngGetProjectDate(LocalDate projectStartDate) throws ParseException {
         if (projectStartDate == null) {
             throw new ProjectCustomException("Enter Proper Date", "INVALID_DATE");
