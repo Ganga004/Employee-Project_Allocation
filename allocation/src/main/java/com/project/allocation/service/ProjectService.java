@@ -13,4 +13,6 @@ public interface ProjectService {
     Project updateProjectDetails(Long projectId, ProjectRequest request) throws ParseException;
 
     List<ProjectResponse> getProjectDetails(Long empId);
+
+    List<Project> getAllProjectDetails();
 }
