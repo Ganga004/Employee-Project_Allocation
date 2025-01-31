@@ -42,4 +42,10 @@ public class ProjectController {
         return new ResponseEntity<>(listOfProjects,HttpStatus.OK) ;
     }
 
+     @GetMapping("/get/all")
+    public ResponseEntity<List<Project>> getAllProjectDetails() {
+        List<Project> listOfProjects = projectService.getAllProjectDetails();
+        return new ResponseEntity<>(listOfProjects,HttpStatus.OK) ;
+    }
+    
 }
