@@ -15,4 +15,6 @@ public interface EmpService {
     EmpResponse getEmployee();
 
     List<Employee> getListOfEmployeesBasedOnPrimaryAndSecondarySkills(String primarySkills, String secondarySkills);
+
+    List<Employee> getAllEmployeeData();
 }
