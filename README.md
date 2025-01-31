@@ -8,10 +8,10 @@ Zipkin URL:
 http://127.0.0.1:9411/zipkin/
 
 
-Swagger Link 
-Employee Details Link : http://localhost:8080/swagger-ui/index.html#/
+Swagger Links:  
+[Swagger - Employee Link](http://localhost:8080/swagger-ui/index.html#/) 
 
-Project Allocaion Link : http://localhost:8081/swagger-ui/index.html#/
+[Swagger - Project Allocaion Link](http://localhost:8081/swagger-ui/index.html#/)
 
 
 Employee : 
@@ -29,6 +29,8 @@ Project Allocation :
 
 
 Sample Json Data
+
+```json
 {
     "message": "Primary Skills not Allocated for these Employees",
     "data": [
@@ -54,6 +56,6 @@ Sample Json Data
         }
     ]
 }
-
+```
 
 
