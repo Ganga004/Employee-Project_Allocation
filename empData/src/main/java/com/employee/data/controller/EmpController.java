@@ -30,6 +30,13 @@ public class EmpController {
         return new ResponseEntity<>(new ApiResponse("Employee Data Added", savedEmployee), HttpStatus.CREATED);
     }
 
+     @GetMapping("/get/all")
+    public ResponseEntity<ApiResponse> getAllEmployee() throws ParseException {
+        log.info("EmpController::getemployee..");
+        List<Employee> employeeList = empService.getAllEmployeeData();
+        return new ResponseEntity<>(new ApiResponse("Employee Data Added", employeeList), HttpStatus.OK);
+    }
+    
     @GetMapping("/second/most/experience")
     public ResponseEntity<ApiResponse> getSecondMostExperienced() {
         log.info("EmpController::getSecondMostExperience");
