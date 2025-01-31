@@ -111,6 +111,12 @@ public class EmpServiceImpl implements EmpService {
         return listOfEmployee.isEmpty() ? List.of() : listOfEmployee;
     }
 
+    @Override
+    public List<Employee> getAllEmployeeData() {
+        List<Employee> empList = empRepository.findAll();
+        return empList;
+    }
+    
     private static Double validateAndGetOverAllYearsOfExperience(Double yearsOfExperience) {
         if (yearsOfExperience == null || yearsOfExperience.isNaN()) {
             throw new EmployeeCustomException("Enter proper years of experience", "INVALID_YEARS_OF_EXPERIENCE");
