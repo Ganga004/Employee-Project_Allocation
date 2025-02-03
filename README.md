@@ -26,34 +26,32 @@ There are 4 apis in employee application
 3.  Update employee details
 
 
-**Sample Json Data**
-
+**Sample Data**
+**Employee Json Data:**
 ```json
 {
-    "message": "Primary Skills not Allocated for these Employees",
-    "data": [
-        {
-            "employeeId": 1,
-            "employeeName": "Madhan",
-            "capabilityCentre": "DEP_QUALITY",
-            "dateOfJoining": "05-03-2022",
-            "designation": "ASSOC_ENGINEER",
-            "primarySkill": "Ruby,Angular",
-            "secondarySkill": "GO,HTML,JavaScript",
-            "overallExperience": 1.5
-        },
-        {
-            "employeeId": 2,
-            "employeeName": "Raja",
-            "capabilityCentre": "PRODUCT_AND_PLATFORM",
-            "dateOfJoining": "08-07-2019",
-            "designation": "ENGINEER",
-            "primarySkill": "C++,.Net",
-            "secondarySkill": "Java,CSS,Angular",
-            "overallExperience": 1.2
-        }
-    ]
+    "employeeName": "Muthu",
+    "capabilityCentre": "product and platform",  // Assuming it's an enum
+    "dateOfJoining": "08-03-2014",
+    "designation": "engineer",  // Assuming it's an enum
+    "primarySkill": "C++,Gobal,.Net",
+    "secondarySkill": "Java,CSS,Angular",
+    "overallExperience":4
 }
 ```
+**Project Json Data:**
+```json
+{
+    "empId":3,
+    "accountName":"Paypal",
+    "projectName":"Developer",
+    "allocation":0.5,
+    "projectStartDate":"20-12-2022",
+    "projectEndDate":"02-12-2025",
+    "remarks":"Good Work"
+
+}
+```
+
 
 
